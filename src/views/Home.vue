@@ -1,7 +1,9 @@
 <template>
   <q-page padding>
-    <h1>Book List</h1>
-    <input type="text" v-model="search">
+    <h3>Book List</h3>
+    <q-input v-model="search" label="Search by title or ISBN" />
+    <br>
+    <br>
     <BookList :books="filteredBooks" />
   </q-page >
 </template>
@@ -23,7 +25,11 @@ export default {
   computed: {
     ...mapState(['books']),
     filteredBooks () {
-      return this.books.filter(book => book.title.toLowerCase().indexOf(this.search.toLowerCase()) !== -1)
+      return this.books.filter(
+        book => (
+          book.title.toLowerCase().indexOf(this.search.toLowerCase()) !== -1 || book.isbn === this.search
+        )
+      )
     }
   },
   methods: {

@@ -1,8 +1,22 @@
 <template>
   <q-page padding>
-    <h1>Book Details</h1>
     <router-link :to="{name:'Home'}">Main Page</router-link>
-    <p>{{book}}</p>
+    <h3>{{book.title}}</h3>
+    <div class="row">
+      <div class="col-2">
+        <img :src="book.thumbnailUrl" alt="">
+      </div>
+      <div class="col-10">
+        <p>{{book.isbn}}</p>
+        <p>{{book.pageCount}}</p>
+        <p>{{book.shortDescription}}</p>
+        <p>{{book.longDescription}}</p>
+        <p>{{book.status}}</p>
+        <p>{{book.authors.join(',')}}</p>
+        <p>{{book.categories.join(',')}}</p>
+        <p>{{book.publishedDate.$date}}</p>
+      </div>
+    </div>
   </q-page>
 </template>
 
