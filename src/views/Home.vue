@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <q-page padding>
     <h1>Book List</h1>
     <input type="text" v-model="search">
     <BookList :books="filteredBooks" />
-  </div>
+  </q-page >
 </template>
 
 <script>

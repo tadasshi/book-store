@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <q-page padding>
     <h1>Book Details</h1>
     <router-link :to="{name:'Home'}">Main Page</router-link>
     <p>{{book}}</p>
-  </div>
+  </q-page>
 </template>
 
 <script>
