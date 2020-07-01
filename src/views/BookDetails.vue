@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Book Details</h1>
+    <router-link :to="{name:'Home'}">Main Page</router-link>
     <p>{{book}}</p>
   </div>
 </template>

@@ -6,22 +6,13 @@
   </div>
 </template>
 <script>
-import { mapActions, mapState } from 'vuex'
 import BookItem from '@/components/book/item'
 
 export default {
   name: 'BookList',
-  computed: {
-    ...mapState(['books'])
-  },
   components: {
     BookItem
   },
-  methods: {
-    ...mapActions(['fetchBooks'])
-  },
-  async created () {
-    this.fetchBooks()
-  }
+  props: ['books']
 }
 </script>

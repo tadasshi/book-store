@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      {{book}}
+      {{book.title}}
     </p>
     <p>some description</p>
     <router-link :to="{name:'book_details', params: { isbn: book.isbn }}">details</router-link>
