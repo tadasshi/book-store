@@ -1,41 +1,27 @@
 <template>
   <q-page padding>
-    <router-link :to="{name:'Home'}">Main Page</router-link>
-    <h3>{{book.title}}</h3>
-    <div class="row">
-      <div class="col-2">
-        <img :src="book.thumbnailUrl" alt="">
-      </div>
-      <div class="col-10">
-        <p>{{book.isbn}}</p>
-        <p>{{book.pageCount}}</p>
-        <p>{{book.shortDescription}}</p>
-        <p>{{book.longDescription}}</p>
-        <p>{{book.status}}</p>
-        <p>{{book.authors.join(',')}}</p>
-        <p>{{book.categories.join(',')}}</p>
-        <p>{{book.publishedDate.$date}}</p>
-      </div>
-    </div>
+    <q-btn color="primary" :to="{ name:'home' }" label="Back to Home" outline size="sm" class="q-mb-md" />
+    <BookDetail :book="book"/>
   </q-page>
 </template>
 
 <script>
+import BookDetail from '@/components/book/BookDetail'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'BookDetails',
+  components: { BookDetail }, // components
   computed: {
     ...mapGetters(['getBookByISBN']),
     book () {
       return this.getBookByISBN(this.$route.params.isbn)
-    }
-  },
+    } // book
+  }, // computed
   methods: {
     ...mapActions(['fetchBooks'])
-  },
+  }, // methods
   async created () {
     this.fetchBooks()
-  }
+  } // created
 }
 </script>

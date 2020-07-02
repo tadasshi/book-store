@@ -7,14 +7,14 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
-  },
+  }, // home
   {
     path: '/book/:isbn',
     name: 'book_details',
     component: () => import('@/views/BookDetails.vue')
-  }
+  } // /book/:isbn
 ]
 
 const router = new VueRouter({

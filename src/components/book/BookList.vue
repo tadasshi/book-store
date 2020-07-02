@@ -6,13 +6,14 @@
   </div>
 </template>
 <script>
-import BookItem from '@/components/book/item'
+import BookItem from '@/components/book/BookItem'
 
 export default {
-  name: 'BookList',
   components: {
     BookItem
-  },
-  props: ['books']
+  }, // components
+  props: {
+    books: Array
+  } // props
 }
 </script>
