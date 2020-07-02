@@ -7,11 +7,11 @@
     </p>
     <q-separator class="q-mb-lg" />
     <div class="row q-col-gutter-xl">
-      <div class="col-3">
+      <div class="col-sm-3 col-xs-12">
         <img :src="book.thumbnailUrl" class="full-width" alt="">
         <q-btn color="primary" class="full-width" :to="{name:'book_details', params: { isbn: book.isbn }}" label="READ NOW" />
       </div>
-      <div class="col-9">
+      <div class="col-sm-9 col-xs-12">
         <p class="text-justify">{{ book.shortDescription }}</p>
         <p class="text-justify">{{ book.longDescription }}</p>
         <p>Book Status: {{ book.status }}</p>

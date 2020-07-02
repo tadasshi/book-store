@@ -3,7 +3,7 @@
     <q-layout>
       <q-page-container>
         <div class="row">
-          <div class="col-md-8 offset-md-2 bg-white">
+          <div class="col-lg-10 offset-lg-1 col-md-12 bg-white">
             <router-view/>
           </div>
         </div>
