@@ -11,10 +11,14 @@
     </q-card>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+
+export default Vue.extend({
   props: {
-    book: Object
+    book: {
+      type: Object as PropType<Book>
+    }
   } // props
-}
+})
 </script>

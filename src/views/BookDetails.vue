@@ -5,15 +5,16 @@
   </q-page>
 </template>
 
-<script>
-import BookDetail from '@/components/book/BookDetail'
+<script lang="ts">
+import Vue from 'vue'
 import { mapActions, mapGetters } from 'vuex'
+import BookDetail from '@/components/book/BookDetail.vue'
 
-export default {
+export default Vue.extend({
   components: { BookDetail }, // components
   computed: {
     ...mapGetters(['getBookByISBN']),
-    book () {
+    book (): Book {
       return this.getBookByISBN(this.$route.params.isbn)
     } // book
   }, // computed
@@ -23,5 +24,5 @@ export default {
   async created () {
     this.fetchBooks()
   } // created
-}
+})
 </script>

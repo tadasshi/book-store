@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const initialState = {
-  books: []
+  books: [] as Book[]
 } // initialState
 
 export default new Vuex.Store({
@@ -13,7 +13,7 @@ export default new Vuex.Store({
     /**
      * Set book list
      */
-    setBooks (state, payload) {
+    setBooks (state, payload: Book[]) {
       state.books = payload
     } // setBooks
   },
@@ -21,8 +21,8 @@ export default new Vuex.Store({
     /**
      * Return book from list based on isbn.
      */
-    getBookByISBN: (state) => (isbn) => {
-      return state.books.find(book => book.isbn === isbn)
+    getBookByISBN: (state) => (isbn: string) => {
+      return state.books.find((book: Book) => book.isbn === isbn)
     }
   },
   actions: {
@@ -30,8 +30,8 @@ export default new Vuex.Store({
      * Fetch list of books
      */
     async fetchBooks ({ commit }) {
-      const response = await fetch('https://raw.githubusercontent.com/bvaughn/infinite-list-reflow-examples/master/books.json')
-      const data = await response.json()
+      const response: Response = await fetch('https://raw.githubusercontent.com/bvaughn/infinite-list-reflow-examples/master/books.json')
+      const data: Book[] = await response.json()
 
       commit('setBooks', data)
     } // fetchTargets

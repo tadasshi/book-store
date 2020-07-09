@@ -5,15 +5,19 @@
     </div>
   </div>
 </template>
-<script>
-import BookItem from '@/components/book/BookItem'
 
-export default {
+<script lang="ts">
+import BookItem from '@/components/book/BookItem.vue'
+import Vue, { PropType } from 'vue'
+
+export default Vue.extend({
   components: {
     BookItem
   }, // components
   props: {
-    books: Array
+    books: {
+      type: Object as PropType<Book[]>
+    }
   } // props
-}
+})
 </script>

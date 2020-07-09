@@ -8,14 +8,15 @@
   </q-page >
 </template>
 
-<script>
-import BookList from '@/components/book/BookList'
+<script lang="ts">
+import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
+import BookList from '@/components/book/BookList.vue'
 
-export default {
+export default Vue.extend({
   data () {
     return {
-      search: ''
+      search: '' as string
     }
   }, // data
   components: {
@@ -26,10 +27,10 @@ export default {
     /**
      * Return list of books, if a search was performed, it filter the list before returning it.
      */
-    filteredBooks () {
+    filteredBooks (): Book[] {
       if (this.search) {
         return this.books.filter(
-          book => (
+          (book: Book) => (
             book.title.toLowerCase().indexOf(this.search.toLowerCase()) !== -1 || book.isbn === this.search
           )
         )
@@ -44,5 +45,5 @@ export default {
   async created () {
     this.fetchBooks()
   } // created
-}
+})
 </script>
